@@ -11,6 +11,14 @@
 
 <body>
   <h1>Location de voitures anciennes</h1>
+
+<p>paragarpahe 1</p>
+<p>paragarpahe 2</p>
+<p>paragarpahe 3</p>
+<p>paragarpahe 4</p>
+<p>paragarpahe 5</p>
+<p>paragarpahe 6</p>
+<p>paragarpahe 7</p>
   <script>
     // var colors = ['red', 'blue', 'orange'];
     // colors.push('purple');
@@ -44,21 +52,111 @@
     //   console.log('This is false');
     // }
 //blabla
-    var fruit = '';
-    switch (fruit) {
-      case 'banana':
-        console.log('I hate bananas');
-        break;
-      case 'apple':
-        console.log('I love apples');
-        break;
-      case 'orange':
-        console.log('Oranges are ok');
-        break;
-      default:
-        console.log('I love all other fruits');
-        break;
+    // var fruit = '';
+    // switch (fruit) {
+    //   case 'banana':
+    //     console.log('I hate bananas');
+    //     break;
+    //   case 'apple':
+    //     console.log('I love apples');
+    //     break;
+    //   case 'orange':
+        // console.log('Oranges are ok');
+    //     break;
+    //   default:
+    //     console.log('I love all other fruits');
+    //     break;
+    // }
+  </script>
+  <script type="text/javascript">
+
+// function joursEcoules(jourNumerique) {
+//   switch (jourNumerique){
+//     case 7:
+//     console.log('Samedi');
+//     case 6:
+//     console.log('Vendredi');
+//     case 5:
+//     console.log('Jeudi');
+//     case 4:
+//     console.log('Mercredi');
+//     case 3:
+//     console.log('Mardi');
+//     case 2:
+//     console.log('Lundi');
+//     case 1:
+//     console.log('Dimanche');
+//     break;
+//   default:
+//   console.log('Je ne sais pas combien de jours se sont écoulés');
+// }
+// }
+//
+// joursEcoules(6);
+
+// var nomComplet ={
+//
+//   "prenom" : "Mat",
+//   "Nom de famille" : "Smith"
+// }
+//
+// for(var key in nomComplet){
+//   console.log(key + ' : ' + nomComplet[key]);
+// }
+
+// //voir contenu du dernier paragraphe
+// var paragraphes = document.getElementsByTagName('p');
+// var dernierIndice = paragraphes.length - 1;
+// var dernierParagraphe = paragraphes[dernierIndice];
+// console.log(dernierParagraphe);
+// console.log(dernierParagraphe.innerHTML);
+// //remplacer le contenu du dernier paragraphe
+// dernierParagraphe.innerHTML= 'blabla';
+
+//REVERSED STRING
+// function reverse(element) {
+//
+//   if (typeof element !== 'string') {
+//     console.log('This is not a string, please enter a string');
+//   } else {
+//     console.log('This i a string');
+//     // var originalString = element;
+//     console.log(element);
+//     var reversedString = '';
+//     for (var i = 0; i < element.length ; i++) {
+//       var result = '';
+//       reversedString += element.charAt(element.length - i - 1);
+//             console.log(reversedString);
+//     }
+//     return reversedString;
+//   }
+// }
+//
+// reverse('Hello');
+
+//CALCULER UNE SOMME qui retourne true uniquement
+//si la somme des nombres positifs etst superieure
+//a la somme absolue des nombres negatifs
+
+function calculateSums([number1, number2]) {
+
+  var positiveSum = 0;
+  var negativeSum = 0;
+  var counter = 0;
+
+  while (counter < .length) {
+    if ((number1 + number2) >= 0) {
+      positiveSum = number1 + number2;
+    } else {
+      negativeSum = Math.abs(number1) + Math.abs(number2);
     }
+
+    counter++;
+  }
+}
+
+calculateSums([1,2]);
+
   </script>
 </body>
 

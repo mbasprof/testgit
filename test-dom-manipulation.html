@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div id="main">
+  <h1>DOM MANIPULATION TETS WITH JS</h1>
+  <p id="demo1" class="para">ceci est une démo1</p>
+  <p id="demo2"  class="para">ceci est une démo2</p>
+  <p id="demo3">ceci est une démo3</p>
+  <p id="demo4">ceci est une démo4</p>
+  <p id="demo5">ceci est une démo5</p>
+</div>
+  <form action="">
+    <label for="first-name" class="etiquette"></label>
+<input type="text" id="first-name" name="first-name">
+<input type="submit">
+
+  </form>
+
+
+<script type="text/javascript">
+var x = document.getElementById('main');
+console.log(x);
+
+var y = x.getElementsByTagName('p');
+console.log(y);
+
+var z = document.getElementsByClassName('etiquette');
+console.log(z);
+
+var t = document.querySelectorAll("p.para");
+console.log(t);
+// var myElement = document.getElementsByTagName('p');
+// console.log(myElement);
+</script>
+</body>
+</html>
