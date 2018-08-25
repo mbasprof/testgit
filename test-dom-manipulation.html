@@ -5,15 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <style>
+#demo2 {
+  background-color: red;
+  color:blue;
+}
+#demo1 {
+  background-color: yellow;
+  color:pink;
+}
+
+#animation-container{
+  width:400px;
+  height:400px;
+  position:relative;
+  background-color: grey;
+}
+
+#animation{
+  width:50px;
+  height: 50px;
+  position: absolute;
+  background-color: aqua;
+}
+  </style>
 </head>
 <body>
 <div id="main">
   <h1>DOM MANIPULATION TETS WITH JS</h1>
-  <p id="demo1" class="para">ceci est une démo1</p>
+  <p id="demo1" class="para" title="non">ceci est une démo1</p>
   <p id="demo2"  class="para">ceci est une démo2</p>
   <p id="demo3">ceci est une démo3</p>
   <p id="demo4">ceci est une démo4</p>
   <p id="demo5">ceci est une démo5</p>
+</div>
+<div id="animation-container">
+  <div id="animation">anim</div>
 </div>
   <form action="">
     <label for="first-name" class="etiquette"></label>
@@ -24,19 +51,82 @@
 
 
 <script type="text/javascript">
-var x = document.getElementById('main');
-console.log(x);
 
-var y = x.getElementsByTagName('p');
-console.log(y);
-
-var z = document.getElementsByClassName('etiquette');
-console.log(z);
-
-var t = document.querySelectorAll("p.para");
-console.log(t);
+//selection d'elements
+// var x = document.getElementById('main');
+// console.log(x);
+//
+// var y = x.getElementsByTagName('p');
+// console.log(y);
+//
+// var z = document.getElementsByClassName('etiquette');
+// console.log(z);
+//
+// var t = document.querySelectorAll("p.para");
+// console.log(t);
 // var myElement = document.getElementsByTagName('p');
 // console.log(myElement);
+
+//changer un attribut
+// document.getElementById('demo1').title = 'ouiaaa';
+// document.getElementById('demo2').style.backgroundColor = "green";
+// document.getElementById('demo3').style.border = "5px solid black";
+//
+// // cacher
+// document.getElementById('demo4').style.visibility = "hidden";
+//
+// // recuperer le contenu de la balise style
+// var x = document.getElementsByTagName('STYLE')[0];
+// document.getElementById('demo5').innerHTML = x.innerHTML;
+//
+// // changer le contenu de la balise style
+// // xreation de la balise style
+// var s = document.createElement("STYLE");
+// // creation du contenu de la balise
+// var t = document.createTextNode("body{background-color : purple;}");
+// // on ajoute le contenu de la balise à la balise style
+// s.appendChild(t);
+// // on ajoute la balise style au head
+// document.head.appendChild(s);
+
+
+// Animation basique
+document.getElementById('demo5').onclick = move;
+function move(){
+
+  var elem = document.getElementById('animation');
+  var pos = 0; //a la position 0
+  // on set un timer pour les frames de l'animation
+  var id = setInterval(frame, 5);
+  function frame(){
+    if (pos == 350) { //qd element arrive a 350 px
+      clearInterval(id); //on arrete le timer donc l'animation
+    } else {
+      // Sinon, on incrémente de 1 pixel la position de l'élément vers le bsa et vers la droite
+      pos++;
+      elem.style.top = pos + 'px';
+      elem.style.left = pos + 'px';
+    }
+  }
+}
+
+
+// document.getElementById('first-name').onfocus = upperCase();
+// A REVOIR MAL FAIT
+function upperCase(str){
+  var string = document.getElementById('first-name').value;
+
+  if(string){
+      console.log(string);
+        string = string.toUpperCase();
+        return string;
+  }
+
+  // var str = str.value.toUpperCase() ;
+  // return str;
+}
+
+upperCase();
 </script>
 </body>
 </html>
