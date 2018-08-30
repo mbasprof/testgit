@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Objects en javascript</h1>
+  <div id="demo1"></div>
+  <script>
+  "use strict";
+  var o;
+    o = {
+      firstName: 'Dane',
+      lastName: 'Cameron',
+      profession : 'Integrateur',
+      getFullName: function() {
+        return (this.firstName + ' ' + this.lastName);
+      }
+
+    }
+    console.log(o.getFullName());
+    document.getElementById('demo1').innerHTML = o.getFullName();
+
+  //Objects
+  //creation d'une nouvelle methode appelée 'contains' sur l,objet Array
+
+  Array.prototype.contains = function (val) {
+    for (var i = 0; i < this.length; i++) {
+      // si la valeur est dans l'array retourne true
+      if(this[i] === val) {
+        return true;
+      }
+    }
+    // la valeur n'est pas dans l'array retourne false
+    return false;
+  }
+
+//on test la metdhode contains avec un tableau
+var tableau;
+  tableau = [1, 2, 3, 4, 5];
+  console.log(tableau.contains(8));  //false
+  console.log(tableau.contains(2));  //true
+
+  /*********************/
+
+  //On définit un objet avec des methodes qui sera le PROTOTYPE
+  var staffPrototype;
+
+  staffPrototype = {
+    increasePay : function(percentage){
+      this.salary = this.salary + ((this.salary * percentage) / 100);
+    },
+    getEntireName : function() {
+      return this.firstName + ' ' + this.lastName + ' (' + this.profession + ')';
+    }
+  }
+
+    //on definit une fonction pour setter cet objet comme un prototype pour d'autres Objects
+    function extend(obj) {
+      function T() {};
+      T.prototype = obj ;
+      return new T();
+    }
+
+    //on crée un nouvel objet
+    var s1;
+    s1 = extend(staffPrototype);
+
+    //on ajoute les propriétés correspondantes à ce nouvel objet
+    s1.firstName = 'Morgan';
+    s1.lastName = 'Thomas';
+    s1.profession = 'Graphiste';
+    s1.salary = 50000;
+
+    //on applique les méthodes
+    console.log(s1.getEntireName());
+    s1.increasePay(10);
+    console.log(s1.salary);
+
+    /*********************/
+
+    //CONSTRUCTOR FUNCTIONS. ALWAYS START WITH A CAPITAL LETTER
+    function Student(prenom, nom, age, groupe){
+      this.prenom = prenom;
+      this.nom = nom;
+      this.age = age;
+      this.groupe = groupe;
+    }
+
+    //on crée un nouvel objet à partir de la CONSTRUCTOR FUNCTION
+    var e1;
+   e1 = new Student('Marion', 'Bastide', 30, 101);
+ console.log(e1);
+ console.log(e1.prenom);
+
+/*******************/
+
+ //JSON javasript object notation
+ //ON PEUT UNIQUEMENT SERIALISER LES PROPRIETES D'UN OBJET
+ //Attention : limitations avec les dates.
+
+//on cree un objet en javascript
+var c1;
+c1 = {
+  contactName : 'William Jones',
+  phoneNumber : '555-4444',
+  emailAddress : 'william@company.com',
+  company : {
+    code : 123,
+    name : 'ABC Corporation'
+  },
+  notes : null,
+  lastContacted : new Date()
+}
+
+//on convertit un objet en JSON = SERIALIZATION
+var contactJson = JSON.stringify(c1);
+console.log(contactJson);
+
+//On convertit cette string de JSON en javascript  = DE-SERIALIZATION
+var contactJs = JSON.parse(contactJson);
+console.log(contactJs);
+
+//EXEMPLE DE SERIALIZATION POUR CLONER UN OBJET
+var etudiant1 = {
+  studentName : 'Pierre Dupont',
+  school : 'Primaire Ile des soeurs',
+  grades :  [
+    { subject :'Francais', grade : 'A'},
+    { subject :'Math', grade : 'B'},
+    { subject :'Anglais', grade : 'A'},
+  ]
+}
+
+function clone(obj) {
+  var studentJson = JSON.stringify(obj);
+  console.log('etudiant1', studentJson);
+  var studentBack = JSON.parse(studentJson);
+  // console.log(studentBack);
+  return studentBack;
+}
+
+var etudiant2 = clone(etudiant1);
+console.log('etudiant2' , etudiant2);
+
+
+  </script>
+</body>
+
+</html>

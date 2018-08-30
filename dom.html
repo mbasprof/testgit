@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    ol {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="mainheader">This is the title</h1>
+  <ol id="daysoftheweek">
+    <li>Monday</li>
+    <li>Tuesday</li>
+    <li>Wednesday</li>
+    <li>Thursday</li>
+    <li>Friday</li>
+  </ol>
+  <script>
+    o = document.getElementById('daysoftheweek');
+    console.log(o.childNodes);
+    console.log(o.childNodes[3].nodeType);
+    console.log(o.childNodes[3]);
+    console.log(o.parentNode);
+    console.log(o.firstElementChild);
+    //on cree l'élément
+    newLi = document.createElement('li');
+    console.log(newLi);
+    //on crée le textNode de l'èlèment
+    saturday = document.createTextNode('Saturday');
+    console.log(saturday);
+    //on ajoute le textNode à l'élément
+    newLi.appendChild(saturday);
+    console.log(newLi);
+    //on place l'élément crée dans le DOM, ici dans le ol
+    document.getElementById('daysoftheweek').appendChild(newLi);
+  </script>
+
+  <script>
+  //on ajoute un evenement au survol du h1 par la souris, affiche le ol
+document.getElementsByClassName('mainheader')[0]
+.addEventListener('mouseenter', function(event){
+  document.getElementById('daysoftheweek').style.display ='block';
+});
+
+//on ajoute un evenement : quand la souris quitte le h1, on cache le ol
+document.getElementsByClassName('mainheader')[0]
+.addEventListener('mouseleave', function(event){
+  document.getElementById('daysoftheweek').style.display = 'none';
+});
+
+
+
+
+  </script>
+</body>
+
+</html>

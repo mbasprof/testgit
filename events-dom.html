@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-border-box;
+    }
+
+    #demo1 {
+      background-color: yellow;
+      padding: 15px;
+      width: 200px;
+    }
+
+    label,
+    input {
+      display: block;
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Events DOM examples</h1>
+  <div id="demo1">Click on me</div>
+  <div id="demo2">Cookies</div>
+  <form action="">
+    <label for="firstname" class="libelle">First Name</label>
+    <input type="text" class="field" id="firstname" name="firstname">
+
+    <label for="lastname" class="libelle">Last Name</label>
+    <input type="text" class="field" id="lastname" name="lastname">
+
+    <label for="cityname" class="libelle">City Name</label>
+    <input type="text" class="field" id="cityname" name="cityname">
+    <input type="submit">
+  </form>
+  <script>
+    document.getElementById('demo1').onmouseover = displayDate;
+
+    function displayDate() {
+      document.getElementById('demo1').innerHTML = Date();
+    }
+
+    // document.body.onload = checkCookies();
+    //
+    // function checkCookies() {
+    //   var text = "";
+    //   if (navigator.cookieEnabled == true) {
+    //     text = "Cookies are enabled";
+    //   } else {
+    //     text = "Cookies are not enabled";
+    //   }
+    //   document.getElementById("demo2").innerHTML = text;
+    // }
+
+    //CHANGE THE BACKGROUND_COLOR OF ONE INPUT ON FOCUS
+    //  document.getElementById('firstname').addEventListener('focus', changeBkColor);
+    //
+    // function changeBkColor() {
+    //         document.getElementById('firstname').style.backgroundColor = 'orange';
+    //   }
+
+    // document.getElementsByClassName('field').addEventListener('focus', changeBkColors);
+
+    // function changeBkColors() {
+      var fields = document.getElementsByClassName('field');
+      fields.addEventListener('focus', myFunction() {
+        for (var i = 0; i < fields.length; i++) {
+          console.log(fields[i]);
+          fields[i].style.backgroundColor = 'yellow';
+        }
+      });
+    // }
+    // changeBkColors();
+  </script>
+</body>
+
+</html>
