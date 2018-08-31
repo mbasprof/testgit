@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Browser Object Model</h1>
+  <p id="demo1"></p>
+  <p id="demo2"></p>
+<p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<button type="button" onclick="newDoc()">Inserer une autre page web</button>
+<button type="button" onclick="stopExecution()">Arréter l'execution</button>
+<script type="text/javascript">
+  //RECUPERER LA LARGEUR DU BROWSER (sans la toolbar et la scrollbar)
+
+  var w = window.innerWidth
+  || document.documentElement.clientWidth
+  || document.body.clientWidth;
+  console.log(w);
+  document.getElementById('demo1').innerHTML =  w + ' pixels de large';
+
+  //RECUPERER LA HAUTEUR DU BROWSER (sans la toolbar et la scrollbar)
+
+  var h = window.innerHeight
+  || document.documentElement.clientHeight
+  || document.body.clientHeight;
+  console.log(w);
+  document.getElementById('demo2').innerHTML =  h + ' pixels de haut';
+
+
+  //RECUPERER LA LARHGEUR, la HAUTEUR, etc. DE L'ÉCRAN DE L'UTILISATEUR
+
+  var sw = screen.width;
+  var sh = screen.height;
+  console.log(sw, sh);
+
+  //RECUPERER LA LARHGEUR, la HAUTEUR, DISPONIBLES DE L'ÉCRAN DE L'UTILISATEUR
+
+  var swd = screen.availWidth;
+  var shd = screen.availHeight;
+  console.log(swd, shd);
+
+  //RECUPERER PROFONDEUR DE COULEUR  DE L'ÉCRAN DE L'UTILISATEUR
+
+  var scd = screen.colorDepth;
+  console.log(scd);
+
+  //RECUPERER le href de la page courante
+
+  var wl = window.location;
+  console.log(wl);
+
+  //RECUPERER le path du fichier
+
+  var wlp = window.location.pathname;
+  console.log(wlp);
+
+  //RECUPERER le protocole
+
+  var wlpro = window.location.protocol;
+  console.log(wlpro);
+
+  //RECUPERER le port
+
+  var wlport = window.location.port;
+  console.log(wlport);
+
+//INSERER UN NOUVEAU Document
+
+function newDoc(){
+  window.location.assign("https://www.isi-mtl.com");
+}
+
+//Verifier si les cookies sont activés
+console.log(navigator.cookieEnabled);
+
+//Recuperer le user-agent
+console.log(navigator.language);
+
+//EXECUTER UNE FONCTION APRES UN NOMBRE SPECIFIE DE MILLISECONDES
+var execution = setTimeout(newDoc, 4000);
+
+function stopExecution(){
+  clearTimeout(execution);
+}
+</script>
+</body>
+</html>

@@ -66,18 +66,15 @@
     //         document.getElementById('firstname').style.backgroundColor = 'orange';
     //   }
 
-    // document.getElementsByClassName('field').addEventListener('focus', changeBkColors);
-
-    // function changeBkColors() {
-      var fields = document.getElementsByClassName('field');
-      fields.addEventListener('focus', myFunction() {
-        for (var i = 0; i < fields.length; i++) {
-          console.log(fields[i]);
-          fields[i].style.backgroundColor = 'yellow';
-        }
+    var fields;
+    fields = document.getElementsByClassName('field');
+    for (var i = 0; i < fields.length; i++) {
+      //si on sort du champ de saisie, on recupere le champ qui a declenche l'événement et on change la couleur de son fond
+      fields[i].addEventListener('change', function(event) {
+        console.log('change');
+        event.target.style.backgroundColor = 'red';
       });
-    // }
-    // changeBkColors();
+    }
   </script>
 </body>
 

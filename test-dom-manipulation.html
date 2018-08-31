@@ -1,132 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <style>
-#demo2 {
-  background-color: red;
-  color:blue;
-}
-#demo1 {
-  background-color: yellow;
-  color:pink;
-}
+    #demo2 {
+      background-color: red;
+      color: blue;
+    }
 
-#animation-container{
-  width:400px;
-  height:400px;
-  position:relative;
-  background-color: grey;
-}
+    #demo1 {
+      background-color: yellow;
+      color: pink;
+    }
 
-#animation{
-  width:50px;
-  height: 50px;
-  position: absolute;
-  background-color: aqua;
-}
+    #animation-container {
+      width: 400px;
+      height: 400px;
+      position: relative;
+      background-color: grey;
+    }
+
+    #animation {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      background-color: aqua;
+    }
+
+    .etiquette {
+      display: block;
+    }
   </style>
 </head>
+
 <body>
-<div id="main">
-  <h1>DOM MANIPULATION TETS WITH JS</h1>
-  <p id="demo1" class="para" title="non">ceci est une démo1</p>
-  <p id="demo2"  class="para">ceci est une démo2</p>
-  <p id="demo3">ceci est une démo3</p>
-  <p id="demo4">ceci est une démo4</p>
-  <p id="demo5">ceci est une démo5</p>
-</div>
-<div id="animation-container">
-  <div id="animation">anim</div>
-</div>
-  <form action="">
-    <label for="first-name" class="etiquette"></label>
-<input type="text" id="first-name" name="first-name">
-<input type="submit">
+  <div id="main">
+    <h1>DOM MANIPULATION TETS WITH JS</h1>
+    <p id="demo1" class="para" title="non">ceci est une démo1</p>
+    <p id="demo2" class="para">ceci est une démo2</p>
+    <p id="demo3">ceci est une démo3</p>
+    <p id="demo4">ceci est une démo4</p>
+    <p id="demo5">ceci est une démo5</p>
+  </div>
+  <div id="animation-container">
+    <div id="animation">anim</div>
+  </div>
+  <form action="#" novalidate>
+    <span id="msg1"></span>
+    <label for="firstname" class="etiquette">First Name</label>
+    <input type="text" id="firstname" name="firstname">
+    <label for="lastname" class="etiquette">Last Name</label>
+    <input type="text" id="lastname" name="lastname">
+    <label for="numero" class="etiquette">Numero</label>
+    <input type="number" min="10" max="20" id="numero" name="numero" required>
+    <input type="submit" id="soumettre">
 
   </form>
 
+  <div id="div1">
+    <p id="p1">This is paragraph p1.</p>
+    <p id="p2">This is paragraph p2.</p>
+    <p id="p3">This is paragraph p3.</p>
+  </div>
 
-<script type="text/javascript">
+  <script type="text/javascript">
+    //selection d'elements
+    // var x = document.getElementById('main');
+    // console.log(x);
+    //
+    // var y = x.getElementsByTagName('p');
+    // console.log(y);
+    //
+    // var z = document.getElementsByClassName('etiquette');
+    // console.log(z);
+    //
+    // var t = document.querySelectorAll("p.para");
+    // console.log(t);
+    // var myElement = document.getElementsByTagName('p');
+    // console.log(myElement);
 
-//selection d'elements
-// var x = document.getElementById('main');
-// console.log(x);
-//
-// var y = x.getElementsByTagName('p');
-// console.log(y);
-//
-// var z = document.getElementsByClassName('etiquette');
-// console.log(z);
-//
-// var t = document.querySelectorAll("p.para");
-// console.log(t);
-// var myElement = document.getElementsByTagName('p');
-// console.log(myElement);
-
-//changer un attribut
-// document.getElementById('demo1').title = 'ouiaaa';
-// document.getElementById('demo2').style.backgroundColor = "green";
-// document.getElementById('demo3').style.border = "5px solid black";
-//
-// // cacher
-// document.getElementById('demo4').style.visibility = "hidden";
-//
-// // recuperer le contenu de la balise style
-// var x = document.getElementsByTagName('STYLE')[0];
-// document.getElementById('demo5').innerHTML = x.innerHTML;
-//
-// // changer le contenu de la balise style
-// // xreation de la balise style
-// var s = document.createElement("STYLE");
-// // creation du contenu de la balise
-// var t = document.createTextNode("body{background-color : purple;}");
-// // on ajoute le contenu de la balise à la balise style
-// s.appendChild(t);
-// // on ajoute la balise style au head
-// document.head.appendChild(s);
+    //changer un attribut
+    // document.getElementById('demo1').title = 'ouiaaa';
+    // document.getElementById('demo2').style.backgroundColor = "green";
+    // document.getElementById('demo3').style.border = "5px solid black";
+    //
+    // // cacher
+    // document.getElementById('demo4').style.visibility = "hidden";
+    //
+    // // recuperer le contenu de la balise style
+    // var x = document.getElementsByTagName('STYLE')[0];
+    // document.getElementById('demo5').innerHTML = x.innerHTML;
+    //
+    // // changer le contenu de la balise style
+    // // xreation de la balise style
+    // var s = document.createElement("STYLE");
+    // // creation du contenu de la balise
+    // var t = document.createTextNode("body{background-color : purple;}");
+    // // on ajoute le contenu de la balise à la balise style
+    // s.appendChild(t);
+    // // on ajoute la balise style au head
+    // document.head.appendChild(s);
 
 
-// Animation basique
-document.getElementById('demo5').onclick = move;
-function move(){
+    // Animation basique
+    document.getElementById('demo5').onclick = move;
 
-  var elem = document.getElementById('animation');
-  var pos = 0; //a la position 0
-  // on set un timer pour les frames de l'animation
-  var id = setInterval(frame, 5);
-  function frame(){
-    if (pos == 350) { //qd element arrive a 350 px
-      clearInterval(id); //on arrete le timer donc l'animation
-    } else {
-      // Sinon, on incrémente de 1 pixel la position de l'élément vers le bsa et vers la droite
-      pos++;
-      elem.style.top = pos + 'px';
-      elem.style.left = pos + 'px';
+    function move() {
+
+      var elem = document.getElementById('animation');
+      var pos = 0; //a la position 0
+      // on set un timer pour les frames de l'animation
+      var id = setInterval(frame, 5);
+
+      function frame() {
+        if (pos == 350) { //qd element arrive a 350 px
+          clearInterval(id); //on arrete le timer donc l'animation
+        } else {
+          // Sinon, on incrémente de 1 pixel la position de l'élément vers le bsa et vers la droite
+          pos++;
+          elem.style.top = pos + 'px';
+          elem.style.left = pos + 'px';
+        }
+      }
     }
-  }
-}
+
+    /******************/
+
+    //CHANGE TO UPPERCASE INPUT VALUE
+    // document.getElementById('firstname').onchange = function(){myFunction() };
+
+    // document.getElementById('firstname').addEventListener('keyup', myFunction);
+    //
+    // function myFunction() {
+    //   var inputStr = document.getElementById('firstname').value;
+    //   console.log(inputStr);
+    //   document.getElementById('firstname').value = inputStr.toUpperCase();
+    //
+    // }
+
+    /***************/
+
+    // JAVASCRIPT FORMS apI
+    //
+    // function myFormCheck() {
+    //   var inputObject = document.getElementById("numero");
+    //   if (!inputObject.checkValidity()) {
+    //     document.getElementById('msg1').innerHTML = inputObject.validationMessage;
+    //   }
+    // }
+    //
+    // document.getElementById('numero').onchange = function() {
+    //   myFormCheck()
+    // };
+  </script>
+  <script type="text/javascript">
+    /*************/
+    //INSERTBEFORE()
+
+    var para = document.createElement("h2");
+    var node = document.createTextNode("nouveau h2");
+    // console.log(para.appendChild(node));
+    para.appendChild(node);
+
+    var div = document.getElementById('div1');
+    var child = document.getElementById('p2');
+    //on insère dans le conteneur div, le nouveau h2 (para) avant child (p2)
+    div.insertBefore(para, child);
 
 
-// document.getElementById('first-name').onfocus = upperCase();
-// A REVOIR MAL FAIT
-function upperCase(str){
-  var string = document.getElementById('first-name').value;
+    /****************/
+    //REMOVE elements si on connait le parent
+    // var parent = document.getElementById('div1');
+    // var child1 = document.getElementById('p1');
+    // // on élimine le p1 qu se trouve dans le conteneur parent
+    // parent.removeChild(child1);
 
-  if(string){
-      console.log(string);
-        string = string.toUpperCase();
-        return string;
-  }
+    // Si on ne connait pas le parent
+    // var child01 = document.getElementById('p1');
+    //trouve le parent grace à parentNode et élimine l'enfant souhaité
+    // child.parentNode.removeChild(child01);
 
-  // var str = str.value.toUpperCase() ;
-  // return str;
-}
 
-upperCase();
-</script>
+    /**************/
+    //REMPLACER UN element
+    // var parent = document.getElementById('div1');
+    // var child03 = document.getElementById('p3');
+    // //On remplace le h2 par p3 dans le parent div1
+    // parent.replaceChild(para, child03);
+
+    var myNodeList = document.querySelectorAll('p');
+    console.log(myNodeList);
+    console.log(myNodeList.length);
+    var i;
+    for (i = 0; i < myNodeList.length; i++) {
+      myNodeList[i].style.backgroundColor = "red";
+    }
+  </script>
 </body>
+
 </html>
